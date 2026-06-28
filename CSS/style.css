@@ -1,3 +1,11 @@
 body {
-  background-color: rgb(182, 152, 152);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+footer {
+  margin-top: 20px;
+  width: 100%;
+  text-align: center;
 }
