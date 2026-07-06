@@ -54,7 +54,9 @@ select {
 
 .cities .date {
   font-size: 0.9em;
-  color: #555;
+  color: #979dac;
+  margin-bottom: 5px;
+  margin-top: 5px;
 }
 small {
   font-size: 0.3em;
@@ -64,5 +66,10 @@ footer {
   margin-top: 20px;
   width: 100%;
   text-align: center;
-  color: #778da9;
+  color: #ced4da;
+}
+
+a {
+  color: #73d2de;
+  text-decoration: none;
 }
