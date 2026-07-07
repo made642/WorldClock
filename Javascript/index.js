@@ -26,8 +26,9 @@ function updateTime() {
     "h:mm:ss [<small>]A[</small>]",
   );
 }
-setInterval(updateTime, 100);
+setInterval(updateTime, 1000);
 
+let selectedInterval;
 function countrySelect(event) {
   let cityTimezone = event.target.value;
   let cityTimezoneElement = moment().tz(cityTimezone);
@@ -36,13 +37,24 @@ function countrySelect(event) {
   }
   let cityName = cityTimezone.split("/")[1].replace("_", " ");
   let cityElement = document.querySelector("#all-cities");
-  cityElement.innerHTML = `
+  if (selectedInterval) {
+    clearInterval(selectedInterval);
+  }
+  function updateCityTime() {
+    let cityTimezoneElement = moment().tz(cityTimezone);
+    cityElement.innerHTML = `
+    <div class="cities">
     <div>
       <h2>${cityName}</h2>
       <div class="date">${cityTimezoneElement.format("MMMM D, YYYY")}</div>
       <div class="time">${cityTimezoneElement.format("h:mm:ss [<small>]A[</small>]")}</div>
-    </div> `;
-}
+    </div> 
+    </div>
+    `;
+  }
 
+  updateCityTime();
+  selectedInterval = setInterval(updateCityTime, 1000);
+}
 let selectedCity = document.querySelector("#countrySelect");
 selectedCity.addEventListener("change", countrySelect);
