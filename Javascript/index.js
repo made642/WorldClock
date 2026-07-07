@@ -29,14 +29,18 @@ function updateTime() {
 setInterval(updateTime, 100);
 
 function countrySelect(event) {
-  let currentTime = moment().tz(event.target.value);
-  let cityName = event.target.value.split("/")[1].replace("_", " ");
+  let cityTimezone = event.target.value;
+  let cityTimezoneElement = moment().tz(cityTimezone);
+  if (cityTimezone === "current") {
+    cityTimezone = moment.tz.guess();
+  }
+  let cityName = cityTimezone.split("/")[1].replace("_", " ");
   let cityElement = document.querySelector("#all-cities");
   cityElement.innerHTML = `
     <div>
       <h2>${cityName}</h2>
-      <div class="date">${currentTime.format("MMMM D, YYYY")}</div>
-      <div class="time">${currentTime.format("h:mm:ss [<small>]A[</small>]")}</div>
+      <div class="date">${cityTimezoneElement.format("MMMM D, YYYY")}</div>
+      <div class="time">${cityTimezoneElement.format("h:mm:ss [<small>]A[</small>]")}</div>
     </div> `;
 }
 
