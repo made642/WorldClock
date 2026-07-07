@@ -32,7 +32,6 @@ select {
   margin-bottom: 20px;
   width: 100%;
 }
-
 .cities {
   display: flex;
   justify-content: space-between;
@@ -41,18 +40,18 @@ select {
   padding: 10px 0;
   border-bottom: 1px solid #778da9;
 }
-.cities h2 {
+h2 {
   margin: 0;
   font-size: 1.5em;
 }
 
-.cities .time {
+.time {
   font-size: 2em;
   color: #778da9;
   font-weight: bold;
 }
 
-.cities .date {
+.date {
   font-size: 0.9em;
   color: #979dac;
   margin-bottom: 5px;
